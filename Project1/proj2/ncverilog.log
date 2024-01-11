@@ -1,0 +1,42 @@
+ncverilog: 05.60-s002: (c) Copyright 1995-2005 Cadence Design Systems, Inc.
+TOOL:	ncverilog	05.60-s002: Started on Apr 22, 2008 at 22:42:28 EDT
+ncverilog
+	proj2test.v
+	+access+r
+Recompiling... reason: file './proj2.v' is newer than expected.
+	expected: Tue Apr 22 22:28:52 2008
+	actual:   Tue Apr 22 22:42:21 2008
+file: proj2test.v
+	module worklib.MemInterface:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.MemInterface:v <0x0fa75ada>
+			streams:   2, words:  2003
+	Loading native compiled code:     .................... Done
+	Building instance specific data structures.
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:             19      19
+		Resolved nets:        1       2
+		Registers:           62      62
+		Scalar wires:        28       -
+		Vectored wires:      60       -
+		Always blocks:       29      29
+		Initial blocks:       1       1
+		Cont. assignments:   40      46
+		Pseudo assignments:   2       2
+	Writing initial simulation snapshot: worklib.test:v
+Loading snapshot worklib.test:v .................... Done
+ncsim> source /ncsu/cadence2005/ius56/tools/inca/files/ncsimrc
+ncsim> run
+MEM[3009]=    0 (35 expected)
+MEM[300a]=    0 (36 expected)
+MEM[300b]=0000 (300c expected)
+MEM[300c]=25fc (0024 expected)
+Simulation complete via $finish(1) at time 5023 NS + 0
+./proj2test.v:50     $finish;
+ncsim> exit
+TOOL:	ncverilog	05.60-s002: Exiting on Apr 22, 2008 at 22:42:32 EDT  (total: 00:00:04)

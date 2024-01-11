@@ -1,0 +1,177 @@
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+11
+767
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+UnifiedCache
+# storage
+db|UnifiedCache.(0).cnf
+db|UnifiedCache.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+|
+}
+# end
+# entity
+CacheController
+# storage
+db|UnifiedCache.(1).cnf
+db|UnifiedCache.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+CacheController:ctrl
+}
+# end
+# entity
+ProcInterface
+# storage
+db|UnifiedCache.(2).cnf
+db|UnifiedCache.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+ProcInterface:procif
+}
+# end
+# entity
+MemInterface
+# storage
+db|UnifiedCache.(3).cnf
+db|UnifiedCache.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+MemInterface:memif
+}
+# end
+# entity
+ValidArray
+# storage
+db|UnifiedCache.(4).cnf
+db|UnifiedCache.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+ValidArray:valarr
+}
+# end
+# entity
+CacheData
+# storage
+db|UnifiedCache.(5).cnf
+db|UnifiedCache.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+CacheData:cdata
+}
+# end
+# entity
+CacheRAM
+# storage
+db|UnifiedCache.(6).cnf
+db|UnifiedCache.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+UnifiedCache.v
+97c39567306595e3142482aeb939692
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+CacheData:cdata|CacheRAM:cram
+}
+# end
+# complete
+

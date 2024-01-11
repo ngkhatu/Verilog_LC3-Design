@@ -1,0 +1,311 @@
+Analysis & Synthesis report for UnifiedCache
+Tue Apr 22 22:48:15 2008
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. General Register Statistics
+  8. Multiplexer Restructuring Statistics (Restructuring Performed)
+  9. Analysis & Synthesis Messages
+ 10. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Apr 22 22:48:14 2008    ;
+; Quartus II Version                 ; 6.0 Build 178 04/27/2006 SJ Full Version ;
+; Revision Name                      ; UnifiedCache                             ;
+; Top-level Entity Name              ; UnifiedCache                             ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 178                                      ;
+; Total registers                    ; 102                                      ;
+; Total pins                         ; 75                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++--------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                             ; Setting            ; Default Value      ;
++--------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                             ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                              ; UnifiedCache       ; UnifiedCache       ;
+; Family name                                                        ; Cyclone II         ; Stratix            ;
+; Use smart compilation                                              ; Off                ; Off                ;
+; Restructure Multiplexers                                           ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                ; Off                ; Off                ;
+; Preserve fewer node names                                          ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                          ; Off                ; Off                ;
+; Verilog Version                                                    ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                       ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                           ; Auto               ; Auto               ;
+; Extract Verilog State Machines                                     ; On                 ; On                 ;
+; Extract VHDL State Machines                                        ; On                 ; On                 ;
+; Add Pass-Through Logic to Inferred RAMs                            ; On                 ; On                 ;
+; DSP Block Balancing                                                ; Auto               ; Auto               ;
+; Maximum DSP Block Usage                                            ; Unlimited          ; Unlimited          ;
+; NOT Gate Push-Back                                                 ; On                 ; On                 ;
+; Power-Up Don't Care                                                ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                       ; Off                ; Off                ;
+; Remove Duplicate Registers                                         ; On                 ; On                 ;
+; Ignore CARRY Buffers                                               ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                             ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                              ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore LCELL Buffers                                               ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                     ; Off                ; Off                ;
+; Optimization Technique -- Cyclone II                               ; Balanced           ; Balanced           ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II ; 70                 ; 70                 ;
+; Auto Carry Chains                                                  ; On                 ; On                 ;
+; Auto Open-Drain Pins                                               ; On                 ; On                 ;
+; Remove Duplicate Logic                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                              ; Off                ; Off                ;
+; Perform gate-level register retiming                               ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax             ; On                 ; On                 ;
+; Auto ROM Replacement                                               ; On                 ; On                 ;
+; Auto RAM Replacement                                               ; On                 ; On                 ;
+; Auto Shift Register Replacement                                    ; On                 ; On                 ;
+; Auto Clock Enable Replacement                                      ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                  ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                             ; Off                ; Off                ;
+; Auto Resource Sharing                                              ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                 ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                 ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                      ; Off                ; Off                ;
+; Maximum Number of M4K Memory Blocks                                ; Unlimited          ; Unlimited          ;
+; Ignore translate_off and translate_on Synthesis Directives         ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                 ; Off                ; Off                ;
+; Retiming Meta-Stability Register Sequence Length                   ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                       ; Normal compilation ; Normal compilation ;
+; HDL message level                                                  ; Level2             ; Level2             ;
++--------------------------------------------------------------------+--------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                  ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                              ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------+
+; UnifiedCache.v                   ; yes             ; User Verilog HDL File  ; /afs/eos.ncsu.edu/lockers/workspace/ece/ece406/001/ngkhatu/proj2/synthesis/UnifiedCache.v ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 178   ;
+; Total combinational functions               ; 178   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 162   ;
+;     -- 3 input functions                    ; 7     ;
+;     -- <=2 input functions                  ; 9     ;
+;         -- Combinational cells for routing  ; 0     ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 178   ;
+;     -- arithmetic mode                      ; 0     ;
+; Total registers                             ; 102   ;
+; I/O pins                                    ; 75    ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 102   ;
+; Total fan-out                               ; 1043  ;
+; Average fan-out                             ; 2.94  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                ;
++----------------------------+-------------------+--------------+-------------+------+--------------+---------+-----------+------+--------------+------------------------------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ;
++----------------------------+-------------------+--------------+-------------+------+--------------+---------+-----------+------+--------------+------------------------------------+
+; |UnifiedCache              ; 178 (0)           ; 102 (0)      ; 0           ; 0    ; 0            ; 0       ; 0         ; 75   ; 0            ; |UnifiedCache                      ;
+;    |CacheController:ctrl|  ; 14 (14)           ; 6 (6)        ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; |UnifiedCache|CacheController:ctrl ;
+;    |CacheData:cdata|       ; 79 (79)           ; 64 (64)      ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; |UnifiedCache|CacheData:cdata      ;
+;    |MemInterface:memif|    ; 20 (20)           ; 0 (0)        ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; |UnifiedCache|MemInterface:memif   ;
+;    |ProcInterface:procif|  ; 34 (34)           ; 16 (16)      ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; |UnifiedCache|ProcInterface:procif ;
+;    |ValidArray:valarr|     ; 31 (31)           ; 16 (16)      ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; |UnifiedCache|ValidArray:valarr    ;
++----------------------------+-------------------+--------------+-------------+------+--------------+---------+-----------+------+--------------+------------------------------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 102   ;
+; Number of registers using Synchronous Clear  ; 18    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 82    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |UnifiedCache|ProcInterface:procif|dout[0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |UnifiedCache|CacheData:cdata|BlockReg0[15] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |UnifiedCache|CacheData:cdata|BlockReg1[11] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |UnifiedCache|CacheData:cdata|BlockReg2[0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |UnifiedCache|CacheData:cdata|BlockReg3[3]  ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 2 LEs                ; 20 LEs                 ; Yes        ; |UnifiedCache|CacheController:ctrl|count[1] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 12 LEs               ; 28 LEs                 ; No         ; |UnifiedCache|CacheData:cdata|Selector64    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.0 Build 178 04/27/2006 SJ Full Version
+    Info: Processing started: Tue Apr 22 22:47:54 2008
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UnifiedCache -c UnifiedCache
+Info: Found 7 design units, including 7 entities, in source file UnifiedCache.v
+    Info: Found entity 1: CacheController
+    Info: Found entity 2: ProcInterface
+    Info: Found entity 3: ValidArray
+    Info: Found entity 4: CacheData
+    Info: Found entity 5: MemInterface
+    Info: Found entity 6: UnifiedCache
+    Info: Found entity 7: CacheRAM
+Info: Elaborating entity "UnifiedCache" for the top level hierarchy
+Info: Elaborating entity "CacheController" for hierarchy "CacheController:ctrl"
+Info: Elaborating entity "ProcInterface" for hierarchy "ProcInterface:procif"
+Info: Elaborating entity "MemInterface" for hierarchy "MemInterface:memif"
+Info: Elaborating entity "ValidArray" for hierarchy "ValidArray:valarr"
+Info: Elaborating entity "CacheData" for hierarchy "CacheData:cdata"
+Info (10264): Verilog HDL Case Statement information at UnifiedCache.v(152): all case item expressions in this case statement are onehot
+Info: Elaborating entity "CacheRAM" for hierarchy "CacheData:cdata|CacheRAM:cram"
+Warning: Converted TRI buffer or tri-state bus to logic, or removed OPNDRN
+    Warning: Converting TRI node "CacheData:cdata|data[73]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[72]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[71]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[70]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[69]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[68]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[67]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[66]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[65]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[64]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[63]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[62]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[61]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[60]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[59]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[58]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[57]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[56]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[55]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[54]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[53]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[52]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[51]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[50]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[49]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[48]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[47]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[46]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[45]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[44]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[43]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[42]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[41]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[40]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[39]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[38]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[37]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[36]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[35]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[34]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[33]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[32]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[31]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[30]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[29]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[28]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[27]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[26]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[25]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[24]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[23]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[22]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[21]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[20]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[19]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[18]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[17]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[16]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[15]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[14]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[13]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[12]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[11]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[10]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[9]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[8]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[7]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[6]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[5]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[4]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[3]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[2]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[1]" that feeds logic to a wire
+    Warning: Converting TRI node "CacheData:cdata|data[0]" that feeds logic to a wire
+Info: Implemented 255 device resources after synthesis - the final resource count might be different
+    Info: Implemented 39 input pins
+    Info: Implemented 20 output pins
+    Info: Implemented 16 bidirectional pins
+    Info: Implemented 180 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 75 warnings
+    Info: Processing ended: Tue Apr 22 22:48:14 2008
+    Info: Elapsed time: 00:00:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /afs/eos.ncsu.edu/lockers/workspace/ece/ece406/001/ngkhatu/proj2/synthesis/UnifiedCache.map.smsg.
+
+

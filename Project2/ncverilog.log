@@ -1,0 +1,9 @@
+ncverilog: 06.20-s006: (c) Copyright 1995-2008 Cadence Design Systems, Inc.
+TOOL:	ncverilog	06.20-s006: Started on Jun 07, 2012 at 18:52:50 EDT
+ncverilog
+	+access+r
+	proj1test.v
+ncvlog: *E,COFILE: cannot open source file 'proj1test.v'.
+ncvlog: *F,NOTOPL: no top-level unit found, must have recursive instances.
+ncverilog: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 2).
+TOOL:	ncverilog	06.20-s006: Exiting on Jun 07, 2012 at 18:52:50 EDT  (total: 00:00:00)

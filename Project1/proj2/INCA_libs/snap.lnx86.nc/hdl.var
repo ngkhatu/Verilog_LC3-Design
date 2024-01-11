@@ -1,0 +1,3 @@
+define NCSIMRC	( /ncsu/cadence2005/ius56/tools/inca/files/ncsimrc, ~/.ncsimrc )
+include ../hdl.var
+define SNAPSHOT worklib.test:v

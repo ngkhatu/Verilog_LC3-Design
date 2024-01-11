@@ -1,0 +1,997 @@
+Timing Analyzer report for UnifiedCache
+Tue Apr 22 22:50:53 2008
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clock'
+  6. tsu
+  7. tco
+  8. tpd
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                        ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------+-------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                          ; To                            ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------+-------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 7.475 ns                         ; addr[3]                       ; ProcInterface:procif|dout[7]  ; --         ; clock    ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 12.274 ns                        ; CacheController:ctrl|state[0] ; offdata[9]                    ; clock      ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 15.072 ns                        ; addr[3]                       ; rrqst                         ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.256 ns                        ; offdata[13]                   ; CacheData:cdata|BlockReg3[13] ; --         ; clock    ; 0            ;
+; Clock Setup: 'clock'         ; N/A   ; None          ; 255.62 MHz ( period = 3.912 ns ) ; CacheController:ctrl|state[3] ; CacheData:cdata|BlockReg2[14] ; clock      ; clock    ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                               ;                               ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------+-------------------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP2C35F672C6       ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
+; Default hold multicycle                               ; Same As Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                         ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock'                                                                                                                                                                                                                                                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------+-------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                             ; To                            ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------+-------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[6]  ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[7]  ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[8]  ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[9]  ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[10] ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[11] ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[12] ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[13] ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.62 MHz ( period = 3.912 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[14] ; clock      ; clock    ; None                        ; None                      ; 3.695 ns                ;
+; N/A                                     ; 255.75 MHz ( period = 3.910 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.696 ns                ;
+; N/A                                     ; 255.75 MHz ( period = 3.910 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.696 ns                ;
+; N/A                                     ; 255.75 MHz ( period = 3.910 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.696 ns                ;
+; N/A                                     ; 255.75 MHz ( period = 3.910 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.696 ns                ;
+; N/A                                     ; 255.75 MHz ( period = 3.910 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.696 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.694 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.694 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.694 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.694 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.694 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.692 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.692 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.692 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.692 ns                ;
+; N/A                                     ; 255.89 MHz ( period = 3.908 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.692 ns                ;
+; N/A                                     ; 256.02 MHz ( period = 3.906 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.690 ns                ;
+; N/A                                     ; 256.02 MHz ( period = 3.906 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.690 ns                ;
+; N/A                                     ; 256.02 MHz ( period = 3.906 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.690 ns                ;
+; N/A                                     ; 256.02 MHz ( period = 3.906 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.690 ns                ;
+; N/A                                     ; 256.02 MHz ( period = 3.906 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.690 ns                ;
+; N/A                                     ; 258.53 MHz ( period = 3.868 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.654 ns                ;
+; N/A                                     ; 258.53 MHz ( period = 3.868 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.654 ns                ;
+; N/A                                     ; 258.53 MHz ( period = 3.868 ns )                    ; ValidArray:valarr|validArray[0]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.654 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; ValidArray:valarr|validArray[1]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.652 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[6]  ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[7]  ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.648 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[8]  ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.648 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[9]  ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.648 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[10] ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.648 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[11] ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.648 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[12] ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[13] ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 258.80 MHz ( period = 3.864 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg2[14] ; clock      ; clock    ; None                        ; None                      ; 3.645 ns                ;
+; N/A                                     ; 260.08 MHz ( period = 3.845 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.631 ns                ;
+; N/A                                     ; 260.08 MHz ( period = 3.845 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.631 ns                ;
+; N/A                                     ; 260.08 MHz ( period = 3.845 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.631 ns                ;
+; N/A                                     ; 260.08 MHz ( period = 3.845 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.631 ns                ;
+; N/A                                     ; 260.08 MHz ( period = 3.845 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.631 ns                ;
+; N/A                                     ; 260.21 MHz ( period = 3.843 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.627 ns                ;
+; N/A                                     ; 260.21 MHz ( period = 3.843 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.627 ns                ;
+; N/A                                     ; 260.21 MHz ( period = 3.843 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.627 ns                ;
+; N/A                                     ; 260.21 MHz ( period = 3.843 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.627 ns                ;
+; N/A                                     ; 260.21 MHz ( period = 3.843 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.627 ns                ;
+; N/A                                     ; 261.51 MHz ( period = 3.824 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.610 ns                ;
+; N/A                                     ; 261.51 MHz ( period = 3.824 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.610 ns                ;
+; N/A                                     ; 261.51 MHz ( period = 3.824 ns )                    ; ValidArray:valarr|validArray[8]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.610 ns                ;
+; N/A                                     ; 262.95 MHz ( period = 3.803 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.589 ns                ;
+; N/A                                     ; 262.95 MHz ( period = 3.803 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.589 ns                ;
+; N/A                                     ; 262.95 MHz ( period = 3.803 ns )                    ; ValidArray:valarr|validArray[4]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.589 ns                ;
+; N/A                                     ; 264.48 MHz ( period = 3.781 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 264.48 MHz ( period = 3.781 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 264.48 MHz ( period = 3.781 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 264.48 MHz ( period = 3.781 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 264.48 MHz ( period = 3.781 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.567 ns                ;
+; N/A                                     ; 264.62 MHz ( period = 3.779 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.563 ns                ;
+; N/A                                     ; 264.62 MHz ( period = 3.779 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.563 ns                ;
+; N/A                                     ; 264.62 MHz ( period = 3.779 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.563 ns                ;
+; N/A                                     ; 264.62 MHz ( period = 3.779 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.563 ns                ;
+; N/A                                     ; 264.62 MHz ( period = 3.779 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.563 ns                ;
+; N/A                                     ; 264.97 MHz ( period = 3.774 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.560 ns                ;
+; N/A                                     ; 264.97 MHz ( period = 3.774 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.560 ns                ;
+; N/A                                     ; 264.97 MHz ( period = 3.774 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.560 ns                ;
+; N/A                                     ; 264.97 MHz ( period = 3.774 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.560 ns                ;
+; N/A                                     ; 264.97 MHz ( period = 3.774 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.560 ns                ;
+; N/A                                     ; 265.11 MHz ( period = 3.772 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.556 ns                ;
+; N/A                                     ; 265.11 MHz ( period = 3.772 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.556 ns                ;
+; N/A                                     ; 265.11 MHz ( period = 3.772 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.556 ns                ;
+; N/A                                     ; 265.11 MHz ( period = 3.772 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.556 ns                ;
+; N/A                                     ; 265.11 MHz ( period = 3.772 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.556 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[6]  ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[7]  ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[8]  ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[9]  ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[10] ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[11] ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[12] ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[13] ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.31 MHz ( period = 3.741 ns )                    ; CacheController:ctrl|state[0]    ; CacheData:cdata|BlockReg2[14] ; clock      ; clock    ; None                        ; None                      ; 3.524 ns                ;
+; N/A                                     ; 267.45 MHz ( period = 3.739 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.525 ns                ;
+; N/A                                     ; 267.45 MHz ( period = 3.739 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.525 ns                ;
+; N/A                                     ; 267.45 MHz ( period = 3.739 ns )                    ; ValidArray:valarr|validArray[2]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.525 ns                ;
+; N/A                                     ; 267.74 MHz ( period = 3.735 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.521 ns                ;
+; N/A                                     ; 267.74 MHz ( period = 3.735 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.521 ns                ;
+; N/A                                     ; 267.74 MHz ( period = 3.735 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.521 ns                ;
+; N/A                                     ; 267.74 MHz ( period = 3.735 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.521 ns                ;
+; N/A                                     ; 267.74 MHz ( period = 3.735 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.521 ns                ;
+; N/A                                     ; 267.88 MHz ( period = 3.733 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 267.88 MHz ( period = 3.733 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 267.88 MHz ( period = 3.733 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 267.88 MHz ( period = 3.733 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 267.88 MHz ( period = 3.733 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 267.95 MHz ( period = 3.732 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.518 ns                ;
+; N/A                                     ; 267.95 MHz ( period = 3.732 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.518 ns                ;
+; N/A                                     ; 267.95 MHz ( period = 3.732 ns )                    ; ValidArray:valarr|validArray[3]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.518 ns                ;
+; N/A                                     ; 268.02 MHz ( period = 3.731 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 268.02 MHz ( period = 3.731 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 268.02 MHz ( period = 3.731 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 268.02 MHz ( period = 3.731 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 268.02 MHz ( period = 3.731 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.517 ns                ;
+; N/A                                     ; 268.17 MHz ( period = 3.729 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.513 ns                ;
+; N/A                                     ; 268.17 MHz ( period = 3.729 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.513 ns                ;
+; N/A                                     ; 268.17 MHz ( period = 3.729 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.513 ns                ;
+; N/A                                     ; 268.17 MHz ( period = 3.729 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.513 ns                ;
+; N/A                                     ; 268.17 MHz ( period = 3.729 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.513 ns                ;
+; N/A                                     ; 268.67 MHz ( period = 3.722 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.508 ns                ;
+; N/A                                     ; 268.67 MHz ( period = 3.722 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.508 ns                ;
+; N/A                                     ; 268.67 MHz ( period = 3.722 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.508 ns                ;
+; N/A                                     ; 268.67 MHz ( period = 3.722 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.508 ns                ;
+; N/A                                     ; 268.67 MHz ( period = 3.722 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.508 ns                ;
+; N/A                                     ; 268.82 MHz ( period = 3.720 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.504 ns                ;
+; N/A                                     ; 268.82 MHz ( period = 3.720 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.504 ns                ;
+; N/A                                     ; 268.82 MHz ( period = 3.720 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.504 ns                ;
+; N/A                                     ; 268.82 MHz ( period = 3.720 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.504 ns                ;
+; N/A                                     ; 268.82 MHz ( period = 3.720 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.504 ns                ;
+; N/A                                     ; 268.89 MHz ( period = 3.719 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.506 ns                ;
+; N/A                                     ; 268.89 MHz ( period = 3.719 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.506 ns                ;
+; N/A                                     ; 268.89 MHz ( period = 3.719 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.506 ns                ;
+; N/A                                     ; 268.89 MHz ( period = 3.719 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.506 ns                ;
+; N/A                                     ; 268.89 MHz ( period = 3.719 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.506 ns                ;
+; N/A                                     ; 269.03 MHz ( period = 3.717 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.502 ns                ;
+; N/A                                     ; 269.03 MHz ( period = 3.717 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.502 ns                ;
+; N/A                                     ; 269.03 MHz ( period = 3.717 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.502 ns                ;
+; N/A                                     ; 269.03 MHz ( period = 3.717 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.502 ns                ;
+; N/A                                     ; 269.03 MHz ( period = 3.717 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.502 ns                ;
+; N/A                                     ; 269.32 MHz ( period = 3.713 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.499 ns                ;
+; N/A                                     ; 269.32 MHz ( period = 3.713 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.499 ns                ;
+; N/A                                     ; 269.32 MHz ( period = 3.713 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.499 ns                ;
+; N/A                                     ; 269.32 MHz ( period = 3.713 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.499 ns                ;
+; N/A                                     ; 269.32 MHz ( period = 3.713 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.499 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[8]  ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[9]  ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[10] ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[11] ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[12] ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[13] ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[14] ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.40 MHz ( period = 3.712 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg0[15] ; clock      ; clock    ; None                        ; None                      ; 3.496 ns                ;
+; N/A                                     ; 269.47 MHz ( period = 3.711 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.495 ns                ;
+; N/A                                     ; 269.47 MHz ( period = 3.711 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.495 ns                ;
+; N/A                                     ; 269.47 MHz ( period = 3.711 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.495 ns                ;
+; N/A                                     ; 269.47 MHz ( period = 3.711 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.495 ns                ;
+; N/A                                     ; 269.47 MHz ( period = 3.711 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.495 ns                ;
+; N/A                                     ; 270.64 MHz ( period = 3.695 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[3]  ; clock      ; clock    ; None                        ; None                      ; 3.481 ns                ;
+; N/A                                     ; 270.64 MHz ( period = 3.695 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[4]  ; clock      ; clock    ; None                        ; None                      ; 3.481 ns                ;
+; N/A                                     ; 270.64 MHz ( period = 3.695 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[5]  ; clock      ; clock    ; None                        ; None                      ; 3.481 ns                ;
+; N/A                                     ; 270.64 MHz ( period = 3.695 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[6]  ; clock      ; clock    ; None                        ; None                      ; 3.481 ns                ;
+; N/A                                     ; 270.64 MHz ( period = 3.695 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[7]  ; clock      ; clock    ; None                        ; None                      ; 3.481 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[8]  ; clock      ; clock    ; None                        ; None                      ; 3.477 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[9]  ; clock      ; clock    ; None                        ; None                      ; 3.477 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[10] ; clock      ; clock    ; None                        ; None                      ; 3.477 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[11] ; clock      ; clock    ; None                        ; None                      ; 3.477 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; ValidArray:valarr|validArray[6]  ; ProcInterface:procif|dout[12] ; clock      ; clock    ; None                        ; None                      ; 3.477 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.479 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.479 ns                ;
+; N/A                                     ; 270.78 MHz ( period = 3.693 ns )                    ; CacheController:ctrl|state[0]    ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.479 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[8]  ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[9]  ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[10] ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[11] ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[12] ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[13] ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[14] ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; CacheController:ctrl|state[1]    ; CacheData:cdata|BlockReg0[15] ; clock      ; clock    ; None                        ; None                      ; 3.472 ns                ;
+; N/A                                     ; 271.08 MHz ( period = 3.689 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.475 ns                ;
+; N/A                                     ; 271.08 MHz ( period = 3.689 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.475 ns                ;
+; N/A                                     ; 271.08 MHz ( period = 3.689 ns )                    ; ValidArray:valarr|validArray[12] ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.475 ns                ;
+; N/A                                     ; 271.74 MHz ( period = 3.680 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.466 ns                ;
+; N/A                                     ; 271.74 MHz ( period = 3.680 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.466 ns                ;
+; N/A                                     ; 271.74 MHz ( period = 3.680 ns )                    ; ValidArray:valarr|validArray[13] ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.466 ns                ;
+; N/A                                     ; 271.96 MHz ( period = 3.677 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.464 ns                ;
+; N/A                                     ; 271.96 MHz ( period = 3.677 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.464 ns                ;
+; N/A                                     ; 271.96 MHz ( period = 3.677 ns )                    ; ValidArray:valarr|validArray[9]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.464 ns                ;
+; N/A                                     ; 272.11 MHz ( period = 3.675 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg2[15] ; clock      ; clock    ; None                        ; None                      ; 3.459 ns                ;
+; N/A                                     ; 272.41 MHz ( period = 3.671 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[13] ; clock      ; clock    ; None                        ; None                      ; 3.457 ns                ;
+; N/A                                     ; 272.41 MHz ( period = 3.671 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[14] ; clock      ; clock    ; None                        ; None                      ; 3.457 ns                ;
+; N/A                                     ; 272.41 MHz ( period = 3.671 ns )                    ; ValidArray:valarr|validArray[5]  ; ProcInterface:procif|dout[15] ; clock      ; clock    ; None                        ; None                      ; 3.457 ns                ;
+; N/A                                     ; 273.60 MHz ( period = 3.655 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg1[11] ; clock      ; clock    ; None                        ; None                      ; 3.438 ns                ;
+; N/A                                     ; 273.60 MHz ( period = 3.655 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg1[12] ; clock      ; clock    ; None                        ; None                      ; 3.438 ns                ;
+; N/A                                     ; 273.60 MHz ( period = 3.655 ns )                    ; CacheController:ctrl|state[3]    ; CacheData:cdata|BlockReg1[13] ; clock      ; clock    ; None                        ; None                      ; 3.438 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                  ;                               ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------+-------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                             ;
++-----------------------------------------+-----------------------------------------------------+------------+---------+-------------------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From    ; To                            ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+---------+-------------------------------+----------+
+; N/A                                     ; None                                                ; 7.475 ns   ; addr[3] ; ProcInterface:procif|dout[3]  ; clock    ;
+; N/A                                     ; None                                                ; 7.475 ns   ; addr[3] ; ProcInterface:procif|dout[4]  ; clock    ;
+; N/A                                     ; None                                                ; 7.475 ns   ; addr[3] ; ProcInterface:procif|dout[5]  ; clock    ;
+; N/A                                     ; None                                                ; 7.475 ns   ; addr[3] ; ProcInterface:procif|dout[6]  ; clock    ;
+; N/A                                     ; None                                                ; 7.475 ns   ; addr[3] ; ProcInterface:procif|dout[7]  ; clock    ;
+; N/A                                     ; None                                                ; 7.473 ns   ; addr[3] ; ProcInterface:procif|dout[8]  ; clock    ;
+; N/A                                     ; None                                                ; 7.473 ns   ; addr[3] ; ProcInterface:procif|dout[9]  ; clock    ;
+; N/A                                     ; None                                                ; 7.473 ns   ; addr[3] ; ProcInterface:procif|dout[10] ; clock    ;
+; N/A                                     ; None                                                ; 7.473 ns   ; addr[3] ; ProcInterface:procif|dout[11] ; clock    ;
+; N/A                                     ; None                                                ; 7.473 ns   ; addr[3] ; ProcInterface:procif|dout[12] ; clock    ;
+; N/A                                     ; None                                                ; 7.433 ns   ; addr[3] ; ProcInterface:procif|dout[13] ; clock    ;
+; N/A                                     ; None                                                ; 7.433 ns   ; addr[3] ; ProcInterface:procif|dout[14] ; clock    ;
+; N/A                                     ; None                                                ; 7.433 ns   ; addr[3] ; ProcInterface:procif|dout[15] ; clock    ;
+; N/A                                     ; None                                                ; 7.209 ns   ; addr[3] ; ProcInterface:procif|dout[0]  ; clock    ;
+; N/A                                     ; None                                                ; 7.209 ns   ; addr[3] ; ProcInterface:procif|dout[1]  ; clock    ;
+; N/A                                     ; None                                                ; 7.209 ns   ; addr[3] ; ProcInterface:procif|dout[2]  ; clock    ;
+; N/A                                     ; None                                                ; 7.136 ns   ; addr[3] ; CacheController:ctrl|state[0] ; clock    ;
+; N/A                                     ; None                                                ; 7.131 ns   ; addr[4] ; ProcInterface:procif|dout[3]  ; clock    ;
+; N/A                                     ; None                                                ; 7.131 ns   ; addr[4] ; ProcInterface:procif|dout[4]  ; clock    ;
+; N/A                                     ; None                                                ; 7.131 ns   ; addr[4] ; ProcInterface:procif|dout[5]  ; clock    ;
+; N/A                                     ; None                                                ; 7.131 ns   ; addr[4] ; ProcInterface:procif|dout[6]  ; clock    ;
+; N/A                                     ; None                                                ; 7.131 ns   ; addr[4] ; ProcInterface:procif|dout[7]  ; clock    ;
+; N/A                                     ; None                                                ; 7.129 ns   ; addr[4] ; ProcInterface:procif|dout[8]  ; clock    ;
+; N/A                                     ; None                                                ; 7.129 ns   ; addr[4] ; ProcInterface:procif|dout[9]  ; clock    ;
+; N/A                                     ; None                                                ; 7.129 ns   ; addr[4] ; ProcInterface:procif|dout[10] ; clock    ;
+; N/A                                     ; None                                                ; 7.129 ns   ; addr[4] ; ProcInterface:procif|dout[11] ; clock    ;
+; N/A                                     ; None                                                ; 7.129 ns   ; addr[4] ; ProcInterface:procif|dout[12] ; clock    ;
+; N/A                                     ; None                                                ; 7.089 ns   ; addr[4] ; ProcInterface:procif|dout[13] ; clock    ;
+; N/A                                     ; None                                                ; 7.089 ns   ; addr[4] ; ProcInterface:procif|dout[14] ; clock    ;
+; N/A                                     ; None                                                ; 7.089 ns   ; addr[4] ; ProcInterface:procif|dout[15] ; clock    ;
+; N/A                                     ; None                                                ; 7.073 ns   ; addr[3] ; CacheController:ctrl|state[1] ; clock    ;
+; N/A                                     ; None                                                ; 7.061 ns   ; addr[3] ; CacheController:ctrl|state[3] ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[6]  ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[7]  ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[8]  ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[9]  ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[10] ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[11] ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[12] ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[13] ; clock    ;
+; N/A                                     ; None                                                ; 7.034 ns   ; addr[0] ; CacheData:cdata|BlockReg2[14] ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[6]  ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[7]  ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[8]  ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[9]  ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[10] ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[11] ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[12] ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[13] ; clock    ;
+; N/A                                     ; None                                                ; 7.007 ns   ; addr[1] ; CacheData:cdata|BlockReg2[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.987 ns   ; addr[1] ; CacheData:cdata|BlockReg0[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.865 ns   ; addr[4] ; ProcInterface:procif|dout[0]  ; clock    ;
+; N/A                                     ; None                                                ; 6.865 ns   ; addr[4] ; ProcInterface:procif|dout[1]  ; clock    ;
+; N/A                                     ; None                                                ; 6.865 ns   ; addr[4] ; ProcInterface:procif|dout[2]  ; clock    ;
+; N/A                                     ; None                                                ; 6.797 ns   ; addr[0] ; CacheData:cdata|BlockReg2[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.792 ns   ; addr[4] ; CacheController:ctrl|state[0] ; clock    ;
+; N/A                                     ; None                                                ; 6.770 ns   ; addr[1] ; CacheData:cdata|BlockReg2[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.729 ns   ; addr[4] ; CacheController:ctrl|state[1] ; clock    ;
+; N/A                                     ; None                                                ; 6.717 ns   ; addr[4] ; CacheController:ctrl|state[3] ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.541 ns   ; addr[0] ; CacheData:cdata|BlockReg0[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.514 ns   ; addr[2] ; ProcInterface:procif|dout[3]  ; clock    ;
+; N/A                                     ; None                                                ; 6.514 ns   ; addr[2] ; ProcInterface:procif|dout[4]  ; clock    ;
+; N/A                                     ; None                                                ; 6.514 ns   ; addr[2] ; ProcInterface:procif|dout[5]  ; clock    ;
+; N/A                                     ; None                                                ; 6.514 ns   ; addr[2] ; ProcInterface:procif|dout[6]  ; clock    ;
+; N/A                                     ; None                                                ; 6.514 ns   ; addr[2] ; ProcInterface:procif|dout[7]  ; clock    ;
+; N/A                                     ; None                                                ; 6.512 ns   ; addr[2] ; ProcInterface:procif|dout[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.512 ns   ; addr[2] ; ProcInterface:procif|dout[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.512 ns   ; addr[2] ; ProcInterface:procif|dout[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.512 ns   ; addr[2] ; ProcInterface:procif|dout[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.512 ns   ; addr[2] ; ProcInterface:procif|dout[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.472 ns   ; addr[2] ; ProcInterface:procif|dout[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.472 ns   ; addr[2] ; ProcInterface:procif|dout[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.472 ns   ; addr[2] ; ProcInterface:procif|dout[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[0]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[1]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[2]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[3]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[4]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[5]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[6]  ; clock    ;
+; N/A                                     ; None                                                ; 6.442 ns   ; addr[1] ; CacheData:cdata|BlockReg0[7]  ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.305 ns   ; addr[0] ; CacheData:cdata|BlockReg1[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.297 ns   ; addr[1] ; CacheData:cdata|BlockReg3[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.297 ns   ; addr[1] ; CacheData:cdata|BlockReg3[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.297 ns   ; addr[1] ; CacheData:cdata|BlockReg3[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.297 ns   ; addr[1] ; CacheData:cdata|BlockReg3[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.275 ns   ; addr[1] ; CacheData:cdata|BlockReg1[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.248 ns   ; addr[2] ; ProcInterface:procif|dout[0]  ; clock    ;
+; N/A                                     ; None                                                ; 6.248 ns   ; addr[2] ; ProcInterface:procif|dout[1]  ; clock    ;
+; N/A                                     ; None                                                ; 6.248 ns   ; addr[2] ; ProcInterface:procif|dout[2]  ; clock    ;
+; N/A                                     ; None                                                ; 6.224 ns   ; addr[0] ; CacheData:cdata|BlockReg1[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.209 ns   ; addr[5] ; ProcInterface:procif|dout[3]  ; clock    ;
+; N/A                                     ; None                                                ; 6.209 ns   ; addr[5] ; ProcInterface:procif|dout[4]  ; clock    ;
+; N/A                                     ; None                                                ; 6.209 ns   ; addr[5] ; ProcInterface:procif|dout[5]  ; clock    ;
+; N/A                                     ; None                                                ; 6.209 ns   ; addr[5] ; ProcInterface:procif|dout[6]  ; clock    ;
+; N/A                                     ; None                                                ; 6.209 ns   ; addr[5] ; ProcInterface:procif|dout[7]  ; clock    ;
+; N/A                                     ; None                                                ; 6.207 ns   ; addr[5] ; ProcInterface:procif|dout[8]  ; clock    ;
+; N/A                                     ; None                                                ; 6.207 ns   ; addr[5] ; ProcInterface:procif|dout[9]  ; clock    ;
+; N/A                                     ; None                                                ; 6.207 ns   ; addr[5] ; ProcInterface:procif|dout[10] ; clock    ;
+; N/A                                     ; None                                                ; 6.207 ns   ; addr[5] ; ProcInterface:procif|dout[11] ; clock    ;
+; N/A                                     ; None                                                ; 6.207 ns   ; addr[5] ; ProcInterface:procif|dout[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.202 ns   ; addr[1] ; CacheData:cdata|BlockReg3[12] ; clock    ;
+; N/A                                     ; None                                                ; 6.202 ns   ; addr[1] ; CacheData:cdata|BlockReg3[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.202 ns   ; addr[1] ; CacheData:cdata|BlockReg3[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.202 ns   ; addr[1] ; CacheData:cdata|BlockReg3[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.194 ns   ; addr[1] ; CacheData:cdata|BlockReg1[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.175 ns   ; addr[2] ; CacheController:ctrl|state[0] ; clock    ;
+; N/A                                     ; None                                                ; 6.167 ns   ; addr[5] ; ProcInterface:procif|dout[13] ; clock    ;
+; N/A                                     ; None                                                ; 6.167 ns   ; addr[5] ; ProcInterface:procif|dout[14] ; clock    ;
+; N/A                                     ; None                                                ; 6.167 ns   ; addr[5] ; ProcInterface:procif|dout[15] ; clock    ;
+; N/A                                     ; None                                                ; 6.112 ns   ; addr[2] ; CacheController:ctrl|state[1] ; clock    ;
+; N/A                                     ; None                                                ; 6.100 ns   ; addr[2] ; CacheController:ctrl|state[3] ; clock    ;
+; N/A                                     ; None                                                ; 6.086 ns   ; addr[0] ; CacheData:cdata|BlockReg2[0]  ; clock    ;
+; N/A                                     ; None                                                ; 6.086 ns   ; addr[0] ; CacheData:cdata|BlockReg2[1]  ; clock    ;
+; N/A                                     ; None                                                ; 6.086 ns   ; addr[0] ; CacheData:cdata|BlockReg2[2]  ; clock    ;
+; N/A                                     ; None                                                ; 6.086 ns   ; addr[0] ; CacheData:cdata|BlockReg2[3]  ; clock    ;
+; N/A                                     ; None                                                ; 6.086 ns   ; addr[0] ; CacheData:cdata|BlockReg2[4]  ; clock    ;
+; N/A                                     ; None                                                ; 6.086 ns   ; addr[0] ; CacheData:cdata|BlockReg2[5]  ; clock    ;
+; N/A                                     ; None                                                ; 6.059 ns   ; addr[1] ; CacheData:cdata|BlockReg2[0]  ; clock    ;
+; N/A                                     ; None                                                ; 6.059 ns   ; addr[1] ; CacheData:cdata|BlockReg2[1]  ; clock    ;
+; N/A                                     ; None                                                ; 6.059 ns   ; addr[1] ; CacheData:cdata|BlockReg2[2]  ; clock    ;
+; N/A                                     ; None                                                ; 6.059 ns   ; addr[1] ; CacheData:cdata|BlockReg2[3]  ; clock    ;
+; N/A                                     ; None                                                ; 6.059 ns   ; addr[1] ; CacheData:cdata|BlockReg2[4]  ; clock    ;
+; N/A                                     ; None                                                ; 6.059 ns   ; addr[1] ; CacheData:cdata|BlockReg2[5]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[0]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[1]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[2]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[3]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[4]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[5]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[6]  ; clock    ;
+; N/A                                     ; None                                                ; 5.996 ns   ; addr[0] ; CacheData:cdata|BlockReg0[7]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[0]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[1]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[2]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[3]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[4]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[5]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[6]  ; clock    ;
+; N/A                                     ; None                                                ; 5.948 ns   ; addr[0] ; CacheData:cdata|BlockReg1[7]  ; clock    ;
+; N/A                                     ; None                                                ; 5.943 ns   ; addr[5] ; ProcInterface:procif|dout[0]  ; clock    ;
+; N/A                                     ; None                                                ; 5.943 ns   ; addr[5] ; ProcInterface:procif|dout[1]  ; clock    ;
+; N/A                                     ; None                                                ; 5.943 ns   ; addr[5] ; ProcInterface:procif|dout[2]  ; clock    ;
+; N/A                                     ; None                                                ; 5.942 ns   ; addr[1] ; CacheData:cdata|BlockReg3[3]  ; clock    ;
+; N/A                                     ; None                                                ; 5.942 ns   ; addr[1] ; CacheData:cdata|BlockReg3[4]  ; clock    ;
+; N/A                                     ; None                                                ; 5.942 ns   ; addr[1] ; CacheData:cdata|BlockReg3[5]  ; clock    ;
+; N/A                                     ; None                                                ; 5.942 ns   ; addr[1] ; CacheData:cdata|BlockReg3[6]  ; clock    ;
+; N/A                                     ; None                                                ; 5.942 ns   ; addr[1] ; CacheData:cdata|BlockReg3[7]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[0]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[1]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[2]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[3]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[4]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[5]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[6]  ; clock    ;
+; N/A                                     ; None                                                ; 5.918 ns   ; addr[1] ; CacheData:cdata|BlockReg1[7]  ; clock    ;
+; N/A                                     ; None                                                ; 5.870 ns   ; addr[5] ; CacheController:ctrl|state[0] ; clock    ;
+; N/A                                     ; None                                                ; 5.807 ns   ; addr[5] ; CacheController:ctrl|state[1] ; clock    ;
+; N/A                                     ; None                                                ; 5.795 ns   ; addr[5] ; CacheController:ctrl|state[3] ; clock    ;
+; N/A                                     ; None                                                ; 5.760 ns   ; addr[1] ; CacheData:cdata|BlockReg3[0]  ; clock    ;
+; N/A                                     ; None                                                ; 5.760 ns   ; addr[1] ; CacheData:cdata|BlockReg3[1]  ; clock    ;
+; N/A                                     ; None                                                ; 5.760 ns   ; addr[1] ; CacheData:cdata|BlockReg3[2]  ; clock    ;
+; N/A                                     ; None                                                ; 5.722 ns   ; macc    ; CacheController:ctrl|count[0] ; clock    ;
+; N/A                                     ; None                                                ; 5.722 ns   ; macc    ; CacheController:ctrl|count[1] ; clock    ;
+; N/A                                     ; None                                                ; 5.709 ns   ; addr[0] ; CacheData:cdata|BlockReg3[8]  ; clock    ;
+; N/A                                     ; None                                                ; 5.709 ns   ; addr[0] ; CacheData:cdata|BlockReg3[9]  ; clock    ;
+; N/A                                     ; None                                                ; 5.709 ns   ; addr[0] ; CacheData:cdata|BlockReg3[10] ; clock    ;
+; N/A                                     ; None                                                ; 5.709 ns   ; addr[0] ; CacheData:cdata|BlockReg3[11] ; clock    ;
+; N/A                                     ; None                                                ; 5.614 ns   ; addr[0] ; CacheData:cdata|BlockReg3[12] ; clock    ;
+; N/A                                     ; None                                                ; 5.614 ns   ; addr[0] ; CacheData:cdata|BlockReg3[13] ; clock    ;
+; N/A                                     ; None                                                ; 5.614 ns   ; addr[0] ; CacheData:cdata|BlockReg3[14] ; clock    ;
+; N/A                                     ; None                                                ; 5.614 ns   ; addr[0] ; CacheData:cdata|BlockReg3[15] ; clock    ;
+; N/A                                     ; None                                                ; 5.530 ns   ; rrdy    ; CacheController:ctrl|state[1] ; clock    ;
+; N/A                                     ; None                                                ; 5.527 ns   ; rrdy    ; CacheController:ctrl|state[0] ; clock    ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;         ;                               ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+---------+-------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------+
+; tco                                                                                             ;
++-------+--------------+------------+----------------------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From                             ; To          ; From Clock ;
++-------+--------------+------------+----------------------------------+-------------+------------+
+; N/A   ; None         ; 12.274 ns  ; CacheController:ctrl|state[0]    ; offdata[9]  ; clock      ;
+; N/A   ; None         ; 12.132 ns  ; CacheController:ctrl|state[0]    ; offdata[4]  ; clock      ;
+; N/A   ; None         ; 12.118 ns  ; CacheController:ctrl|state[0]    ; offdata[3]  ; clock      ;
+; N/A   ; None         ; 12.096 ns  ; CacheController:ctrl|state[0]    ; offdata[5]  ; clock      ;
+; N/A   ; None         ; 12.067 ns  ; CacheController:ctrl|state[0]    ; offdata[7]  ; clock      ;
+; N/A   ; None         ; 11.804 ns  ; CacheController:ctrl|state[0]    ; offdata[1]  ; clock      ;
+; N/A   ; None         ; 11.686 ns  ; CacheController:ctrl|state[0]    ; offdata[10] ; clock      ;
+; N/A   ; None         ; 11.670 ns  ; CacheController:ctrl|state[0]    ; offdata[12] ; clock      ;
+; N/A   ; None         ; 11.603 ns  ; CacheController:ctrl|state[0]    ; offdata[6]  ; clock      ;
+; N/A   ; None         ; 11.586 ns  ; CacheController:ctrl|state[0]    ; offdata[0]  ; clock      ;
+; N/A   ; None         ; 11.582 ns  ; CacheController:ctrl|state[0]    ; offdata[8]  ; clock      ;
+; N/A   ; None         ; 11.527 ns  ; CacheController:ctrl|state[0]    ; offdata[11] ; clock      ;
+; N/A   ; None         ; 11.507 ns  ; ValidArray:valarr|validArray[0]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.505 ns  ; ValidArray:valarr|validArray[1]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.500 ns  ; CacheController:ctrl|state[0]    ; offdata[2]  ; clock      ;
+; N/A   ; None         ; 11.463 ns  ; ValidArray:valarr|validArray[8]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.442 ns  ; ValidArray:valarr|validArray[4]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.422 ns  ; CacheController:ctrl|state[0]    ; offdata[14] ; clock      ;
+; N/A   ; None         ; 11.378 ns  ; ValidArray:valarr|validArray[2]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.371 ns  ; ValidArray:valarr|validArray[3]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.328 ns  ; ValidArray:valarr|validArray[12] ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.319 ns  ; CacheController:ctrl|state[0]    ; offdata[15] ; clock      ;
+; N/A   ; None         ; 11.319 ns  ; ValidArray:valarr|validArray[13] ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.316 ns  ; ValidArray:valarr|validArray[9]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.310 ns  ; ValidArray:valarr|validArray[5]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.292 ns  ; ValidArray:valarr|validArray[6]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.280 ns  ; CacheController:ctrl|state[0]    ; offdata[13] ; clock      ;
+; N/A   ; None         ; 11.270 ns  ; ValidArray:valarr|validArray[0]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.268 ns  ; ValidArray:valarr|validArray[1]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.245 ns  ; CacheController:ctrl|state[0]    ; wrqst       ; clock      ;
+; N/A   ; None         ; 11.241 ns  ; ValidArray:valarr|validArray[7]  ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.231 ns  ; ValidArray:valarr|validArray[10] ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.228 ns  ; ValidArray:valarr|validArray[11] ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.226 ns  ; ValidArray:valarr|validArray[8]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.205 ns  ; ValidArray:valarr|validArray[4]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.182 ns  ; CacheController:ctrl|state[3]    ; offdata[9]  ; clock      ;
+; N/A   ; None         ; 11.141 ns  ; ValidArray:valarr|validArray[2]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.134 ns  ; ValidArray:valarr|validArray[3]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.096 ns  ; ValidArray:valarr|validArray[15] ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.091 ns  ; ValidArray:valarr|validArray[12] ; complete    ; clock      ;
+; N/A   ; None         ; 11.082 ns  ; ValidArray:valarr|validArray[13] ; complete    ; clock      ;
+; N/A   ; None         ; 11.079 ns  ; ValidArray:valarr|validArray[9]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.073 ns  ; ValidArray:valarr|validArray[5]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.056 ns  ; ValidArray:valarr|validArray[14] ; rrqst       ; clock      ;
+; N/A   ; None         ; 11.055 ns  ; ValidArray:valarr|validArray[6]  ; complete    ; clock      ;
+; N/A   ; None         ; 11.040 ns  ; CacheController:ctrl|state[3]    ; offdata[4]  ; clock      ;
+; N/A   ; None         ; 11.026 ns  ; CacheController:ctrl|state[3]    ; offdata[3]  ; clock      ;
+; N/A   ; None         ; 11.004 ns  ; CacheController:ctrl|state[3]    ; offdata[5]  ; clock      ;
+; N/A   ; None         ; 11.004 ns  ; ValidArray:valarr|validArray[7]  ; complete    ; clock      ;
+; N/A   ; None         ; 10.994 ns  ; ValidArray:valarr|validArray[10] ; complete    ; clock      ;
+; N/A   ; None         ; 10.991 ns  ; ValidArray:valarr|validArray[11] ; complete    ; clock      ;
+; N/A   ; None         ; 10.975 ns  ; CacheController:ctrl|state[3]    ; offdata[7]  ; clock      ;
+; N/A   ; None         ; 10.859 ns  ; ValidArray:valarr|validArray[15] ; complete    ; clock      ;
+; N/A   ; None         ; 10.819 ns  ; ValidArray:valarr|validArray[14] ; complete    ; clock      ;
+; N/A   ; None         ; 10.712 ns  ; CacheController:ctrl|state[3]    ; offdata[1]  ; clock      ;
+; N/A   ; None         ; 10.664 ns  ; CacheController:ctrl|state[0]    ; rrqst       ; clock      ;
+; N/A   ; None         ; 10.594 ns  ; CacheController:ctrl|state[3]    ; offdata[10] ; clock      ;
+; N/A   ; None         ; 10.578 ns  ; CacheController:ctrl|state[3]    ; offdata[12] ; clock      ;
+; N/A   ; None         ; 10.511 ns  ; CacheController:ctrl|state[3]    ; offdata[6]  ; clock      ;
+; N/A   ; None         ; 10.494 ns  ; CacheController:ctrl|state[3]    ; offdata[0]  ; clock      ;
+; N/A   ; None         ; 10.490 ns  ; CacheController:ctrl|state[3]    ; offdata[8]  ; clock      ;
+; N/A   ; None         ; 10.435 ns  ; CacheController:ctrl|state[3]    ; offdata[11] ; clock      ;
+; N/A   ; None         ; 10.408 ns  ; CacheController:ctrl|state[3]    ; offdata[2]  ; clock      ;
+; N/A   ; None         ; 10.337 ns  ; CacheController:ctrl|state[2]    ; offdata[9]  ; clock      ;
+; N/A   ; None         ; 10.330 ns  ; CacheController:ctrl|state[3]    ; offdata[14] ; clock      ;
+; N/A   ; None         ; 10.280 ns  ; CacheController:ctrl|state[1]    ; offdata[5]  ; clock      ;
+; N/A   ; None         ; 10.227 ns  ; CacheController:ctrl|state[3]    ; offdata[15] ; clock      ;
+; N/A   ; None         ; 10.195 ns  ; CacheController:ctrl|state[2]    ; offdata[4]  ; clock      ;
+; N/A   ; None         ; 10.188 ns  ; CacheController:ctrl|state[3]    ; offdata[13] ; clock      ;
+; N/A   ; None         ; 10.181 ns  ; CacheController:ctrl|state[2]    ; offdata[3]  ; clock      ;
+; N/A   ; None         ; 10.159 ns  ; CacheController:ctrl|state[2]    ; offdata[5]  ; clock      ;
+; N/A   ; None         ; 10.153 ns  ; CacheController:ctrl|state[3]    ; wrqst       ; clock      ;
+; N/A   ; None         ; 10.130 ns  ; CacheController:ctrl|state[2]    ; offdata[7]  ; clock      ;
+; N/A   ; None         ; 10.118 ns  ; CacheController:ctrl|state[1]    ; offdata[3]  ; clock      ;
+; N/A   ; None         ; 10.071 ns  ; CacheController:ctrl|state[0]    ; rdacpt      ; clock      ;
+; N/A   ; None         ; 10.039 ns  ; CacheController:ctrl|state[1]    ; offdata[4]  ; clock      ;
+; N/A   ; None         ; 9.967 ns   ; CacheController:ctrl|state[1]    ; offdata[9]  ; clock      ;
+; N/A   ; None         ; 9.867 ns   ; CacheController:ctrl|state[2]    ; offdata[1]  ; clock      ;
+; N/A   ; None         ; 9.758 ns   ; CacheController:ctrl|state[1]    ; offdata[1]  ; clock      ;
+; N/A   ; None         ; 9.749 ns   ; CacheController:ctrl|state[2]    ; offdata[10] ; clock      ;
+; N/A   ; None         ; 9.733 ns   ; CacheController:ctrl|state[2]    ; offdata[12] ; clock      ;
+; N/A   ; None         ; 9.693 ns   ; CacheController:ctrl|state[3]    ; rrqst       ; clock      ;
+; N/A   ; None         ; 9.666 ns   ; CacheController:ctrl|state[2]    ; offdata[6]  ; clock      ;
+; N/A   ; None         ; 9.649 ns   ; CacheController:ctrl|state[2]    ; offdata[0]  ; clock      ;
+; N/A   ; None         ; 9.645 ns   ; CacheController:ctrl|state[2]    ; offdata[8]  ; clock      ;
+; N/A   ; None         ; 9.620 ns   ; CacheController:ctrl|state[1]    ; offdata[8]  ; clock      ;
+; N/A   ; None         ; 9.590 ns   ; CacheController:ctrl|state[2]    ; offdata[11] ; clock      ;
+; N/A   ; None         ; 9.570 ns   ; CacheController:ctrl|state[1]    ; offdata[11] ; clock      ;
+; N/A   ; None         ; 9.563 ns   ; CacheController:ctrl|state[2]    ; offdata[2]  ; clock      ;
+; N/A   ; None         ; 9.485 ns   ; CacheController:ctrl|state[2]    ; offdata[14] ; clock      ;
+; N/A   ; None         ; 9.467 ns   ; CacheController:ctrl|state[1]    ; offdata[12] ; clock      ;
+; N/A   ; None         ; 9.421 ns   ; CacheController:ctrl|state[0]    ; complete    ; clock      ;
+; N/A   ; None         ; 9.382 ns   ; CacheController:ctrl|state[2]    ; offdata[15] ; clock      ;
+; N/A   ; None         ; 9.343 ns   ; CacheController:ctrl|state[2]    ; offdata[13] ; clock      ;
+; N/A   ; None         ; 9.310 ns   ; CacheController:ctrl|state[1]    ; offdata[10] ; clock      ;
+; N/A   ; None         ; 9.308 ns   ; CacheController:ctrl|state[2]    ; wrqst       ; clock      ;
+; N/A   ; None         ; 9.230 ns   ; CacheController:ctrl|state[1]    ; offdata[6]  ; clock      ;
+; N/A   ; None         ; 9.219 ns   ; CacheController:ctrl|state[1]    ; offdata[14] ; clock      ;
+; N/A   ; None         ; 9.205 ns   ; CacheController:ctrl|state[2]    ; rrqst       ; clock      ;
+; N/A   ; None         ; 9.125 ns   ; CacheController:ctrl|state[1]    ; rdacpt      ; clock      ;
+; N/A   ; None         ; 9.117 ns   ; CacheController:ctrl|state[1]    ; offdata[15] ; clock      ;
+; N/A   ; None         ; 9.077 ns   ; CacheController:ctrl|state[1]    ; offdata[13] ; clock      ;
+; N/A   ; None         ; 9.065 ns   ; CacheController:ctrl|state[2]    ; complete    ; clock      ;
+; N/A   ; None         ; 9.062 ns   ; CacheController:ctrl|state[1]    ; offdata[2]  ; clock      ;
+; N/A   ; None         ; 8.982 ns   ; CacheController:ctrl|state[3]    ; complete    ; clock      ;
+; N/A   ; None         ; 8.962 ns   ; CacheController:ctrl|state[1]    ; offdata[0]  ; clock      ;
+; N/A   ; None         ; 8.959 ns   ; CacheController:ctrl|state[3]    ; rdacpt      ; clock      ;
+; N/A   ; None         ; 8.933 ns   ; CacheController:ctrl|state[1]    ; offdata[7]  ; clock      ;
+; N/A   ; None         ; 8.773 ns   ; CacheController:ctrl|state[1]    ; complete    ; clock      ;
+; N/A   ; None         ; 8.494 ns   ; ProcInterface:procif|dout[4]     ; dout[4]     ; clock      ;
+; N/A   ; None         ; 8.478 ns   ; CacheController:ctrl|state[1]    ; rrqst       ; clock      ;
+; N/A   ; None         ; 8.386 ns   ; CacheController:ctrl|state[2]    ; rdacpt      ; clock      ;
+; N/A   ; None         ; 8.258 ns   ; ProcInterface:procif|dout[5]     ; dout[5]     ; clock      ;
+; N/A   ; None         ; 8.039 ns   ; ProcInterface:procif|dout[7]     ; dout[7]     ; clock      ;
+; N/A   ; None         ; 7.959 ns   ; ProcInterface:procif|dout[1]     ; dout[1]     ; clock      ;
+; N/A   ; None         ; 7.907 ns   ; ProcInterface:procif|dout[15]    ; dout[15]    ; clock      ;
+; N/A   ; None         ; 7.890 ns   ; ProcInterface:procif|dout[0]     ; dout[0]     ; clock      ;
+; N/A   ; None         ; 7.848 ns   ; ProcInterface:procif|dout[14]    ; dout[14]    ; clock      ;
+; N/A   ; None         ; 7.810 ns   ; ProcInterface:procif|dout[11]    ; dout[11]    ; clock      ;
+; N/A   ; None         ; 7.755 ns   ; ProcInterface:procif|dout[10]    ; dout[10]    ; clock      ;
+; N/A   ; None         ; 7.698 ns   ; ProcInterface:procif|dout[9]     ; dout[9]     ; clock      ;
+; N/A   ; None         ; 7.602 ns   ; ProcInterface:procif|dout[6]     ; dout[6]     ; clock      ;
+; N/A   ; None         ; 7.595 ns   ; ProcInterface:procif|dout[2]     ; dout[2]     ; clock      ;
+; N/A   ; None         ; 7.529 ns   ; ProcInterface:procif|dout[8]     ; dout[8]     ; clock      ;
+; N/A   ; None         ; 7.421 ns   ; ProcInterface:procif|dout[12]    ; dout[12]    ; clock      ;
+; N/A   ; None         ; 7.363 ns   ; ProcInterface:procif|dout[3]     ; dout[3]     ; clock      ;
+; N/A   ; None         ; 7.242 ns   ; ProcInterface:procif|dout[13]    ; dout[13]    ; clock      ;
++-------+--------------+------------+----------------------------------+-------------+------------+
+
+
++----------------------------------------------------------------------+
+; tpd                                                                  ;
++-------+-------------------+-----------------+----------+-------------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From     ; To          ;
++-------+-------------------+-----------------+----------+-------------+
+; N/A   ; None              ; 15.072 ns       ; addr[3]  ; rrqst       ;
+; N/A   ; None              ; 14.835 ns       ; addr[3]  ; complete    ;
+; N/A   ; None              ; 14.728 ns       ; addr[4]  ; rrqst       ;
+; N/A   ; None              ; 14.491 ns       ; addr[4]  ; complete    ;
+; N/A   ; None              ; 14.111 ns       ; addr[2]  ; rrqst       ;
+; N/A   ; None              ; 13.874 ns       ; addr[2]  ; complete    ;
+; N/A   ; None              ; 13.806 ns       ; addr[5]  ; rrqst       ;
+; N/A   ; None              ; 13.569 ns       ; addr[5]  ; complete    ;
+; N/A   ; None              ; 11.948 ns       ; din[12]  ; offdata[12] ;
+; N/A   ; None              ; 11.892 ns       ; addr[3]  ; offdata[3]  ;
+; N/A   ; None              ; 11.740 ns       ; din[15]  ; offdata[15] ;
+; N/A   ; None              ; 11.722 ns       ; addr[4]  ; offdata[4]  ;
+; N/A   ; None              ; 11.616 ns       ; addr[5]  ; offdata[5]  ;
+; N/A   ; None              ; 11.613 ns       ; addr[1]  ; offdata[1]  ;
+; N/A   ; None              ; 11.594 ns       ; din[9]   ; offdata[9]  ;
+; N/A   ; None              ; 11.453 ns       ; din[14]  ; offdata[14] ;
+; N/A   ; None              ; 11.426 ns       ; addr[9]  ; offdata[9]  ;
+; N/A   ; None              ; 11.397 ns       ; din[4]   ; offdata[4]  ;
+; N/A   ; None              ; 11.382 ns       ; addr[12] ; offdata[12] ;
+; N/A   ; None              ; 11.256 ns       ; rd       ; complete    ;
+; N/A   ; None              ; 11.239 ns       ; addr[2]  ; offdata[2]  ;
+; N/A   ; None              ; 11.213 ns       ; addr[14] ; offdata[14] ;
+; N/A   ; None              ; 11.203 ns       ; addr[11] ; offdata[11] ;
+; N/A   ; None              ; 11.148 ns       ; din[11]  ; offdata[11] ;
+; N/A   ; None              ; 11.108 ns       ; addr[10] ; offdata[10] ;
+; N/A   ; None              ; 11.095 ns       ; din[5]   ; offdata[5]  ;
+; N/A   ; None              ; 11.089 ns       ; addr[0]  ; offdata[0]  ;
+; N/A   ; None              ; 11.049 ns       ; addr[7]  ; offdata[7]  ;
+; N/A   ; None              ; 10.995 ns       ; addr[13] ; offdata[13] ;
+; N/A   ; None              ; 10.930 ns       ; addr[8]  ; offdata[8]  ;
+; N/A   ; None              ; 10.924 ns       ; din[3]   ; offdata[3]  ;
+; N/A   ; None              ; 10.923 ns       ; din[7]   ; offdata[7]  ;
+; N/A   ; None              ; 10.878 ns       ; din[10]  ; offdata[10] ;
+; N/A   ; None              ; 10.876 ns       ; din[1]   ; offdata[1]  ;
+; N/A   ; None              ; 10.859 ns       ; addr[15] ; offdata[15] ;
+; N/A   ; None              ; 10.781 ns       ; addr[6]  ; offdata[6]  ;
+; N/A   ; None              ; 10.760 ns       ; din[8]   ; offdata[8]  ;
+; N/A   ; None              ; 10.703 ns       ; din[13]  ; offdata[13] ;
+; N/A   ; None              ; 10.658 ns       ; din[0]   ; offdata[0]  ;
+; N/A   ; None              ; 10.620 ns       ; din[2]   ; offdata[2]  ;
+; N/A   ; None              ; 10.572 ns       ; din[6]   ; offdata[6]  ;
++-------+-------------------+-----------------+----------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+-----------+-------------+----------------------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From        ; To                               ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+-------------+----------------------------------+----------+
+; N/A                                     ; None                                                ; -3.256 ns ; offdata[13] ; CacheData:cdata|BlockReg3[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.274 ns ; offdata[15] ; CacheData:cdata|BlockReg1[15]    ; clock    ;
+; N/A                                     ; None                                                ; -3.307 ns ; offdata[15] ; CacheData:cdata|BlockReg0[15]    ; clock    ;
+; N/A                                     ; None                                                ; -3.315 ns ; din[13]     ; CacheData:cdata|BlockReg1[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.332 ns ; din[1]      ; CacheData:cdata|BlockReg3[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.337 ns ; din[0]      ; CacheData:cdata|BlockReg3[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.346 ns ; offdata[6]  ; CacheData:cdata|BlockReg3[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.348 ns ; offdata[15] ; CacheData:cdata|BlockReg3[15]    ; clock    ;
+; N/A                                     ; None                                                ; -3.348 ns ; din[4]      ; CacheData:cdata|BlockReg2[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.356 ns ; din[1]      ; CacheData:cdata|BlockReg1[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.356 ns ; din[1]      ; CacheData:cdata|BlockReg0[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.357 ns ; din[0]      ; CacheData:cdata|BlockReg2[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.365 ns ; din[3]      ; CacheData:cdata|BlockReg2[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.365 ns ; din[3]      ; CacheData:cdata|BlockReg0[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.366 ns ; din[3]      ; CacheData:cdata|BlockReg1[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.368 ns ; din[2]      ; CacheData:cdata|BlockReg2[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.376 ns ; din[2]      ; CacheData:cdata|BlockReg3[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.379 ns ; din[5]      ; CacheData:cdata|BlockReg2[5]     ; clock    ;
+; N/A                                     ; None                                                ; -3.383 ns ; offdata[7]  ; CacheData:cdata|BlockReg3[7]     ; clock    ;
+; N/A                                     ; None                                                ; -3.385 ns ; din[2]      ; CacheData:cdata|BlockReg1[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.385 ns ; din[2]      ; CacheData:cdata|BlockReg0[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.389 ns ; offdata[6]  ; CacheData:cdata|BlockReg0[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.393 ns ; offdata[6]  ; CacheData:cdata|BlockReg1[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.402 ns ; din[4]      ; CacheData:cdata|BlockReg1[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.402 ns ; din[4]      ; CacheData:cdata|BlockReg0[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.423 ns ; din[5]      ; CacheData:cdata|BlockReg0[5]     ; clock    ;
+; N/A                                     ; None                                                ; -3.431 ns ; offdata[10] ; CacheData:cdata|BlockReg0[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.449 ns ; din[6]      ; CacheData:cdata|BlockReg3[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.450 ns ; addr[0]     ; ProcInterface:procif|dout[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.454 ns ; addr[0]     ; ProcInterface:procif|dout[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.472 ns ; din[13]     ; CacheData:cdata|BlockReg3[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.484 ns ; din[0]      ; CacheData:cdata|BlockReg0[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.487 ns ; din[0]      ; CacheData:cdata|BlockReg1[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.509 ns ; offdata[7]  ; CacheData:cdata|BlockReg2[7]     ; clock    ;
+; N/A                                     ; None                                                ; -3.536 ns ; offdata[7]  ; CacheData:cdata|BlockReg0[7]     ; clock    ;
+; N/A                                     ; None                                                ; -3.540 ns ; offdata[7]  ; CacheData:cdata|BlockReg1[7]     ; clock    ;
+; N/A                                     ; None                                                ; -3.555 ns ; offdata[14] ; CacheData:cdata|BlockReg2[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.556 ns ; offdata[11] ; CacheData:cdata|BlockReg1[11]    ; clock    ;
+; N/A                                     ; None                                                ; -3.558 ns ; offdata[11] ; CacheData:cdata|BlockReg2[11]    ; clock    ;
+; N/A                                     ; None                                                ; -3.569 ns ; din[10]     ; CacheData:cdata|BlockReg3[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.577 ns ; offdata[15] ; CacheData:cdata|BlockReg2[15]    ; clock    ;
+; N/A                                     ; None                                                ; -3.587 ns ; addr[0]     ; ProcInterface:procif|dout[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.589 ns ; din[13]     ; CacheData:cdata|BlockReg2[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.591 ns ; addr[0]     ; ProcInterface:procif|dout[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.597 ns ; offdata[8]  ; CacheData:cdata|BlockReg3[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.602 ns ; offdata[8]  ; CacheData:cdata|BlockReg0[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.605 ns ; offdata[6]  ; CacheData:cdata|BlockReg2[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.606 ns ; addr[4]     ; ValidArray:valarr|validArray[6]  ; clock    ;
+; N/A                                     ; None                                                ; -3.608 ns ; din[13]     ; CacheData:cdata|BlockReg0[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.610 ns ; addr[4]     ; ValidArray:valarr|validArray[14] ; clock    ;
+; N/A                                     ; None                                                ; -3.612 ns ; addr[4]     ; ValidArray:valarr|validArray[10] ; clock    ;
+; N/A                                     ; None                                                ; -3.615 ns ; din[6]      ; CacheData:cdata|BlockReg2[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.615 ns ; addr[4]     ; ValidArray:valarr|validArray[5]  ; clock    ;
+; N/A                                     ; None                                                ; -3.617 ns ; offdata[1]  ; CacheData:cdata|BlockReg3[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.619 ns ; addr[4]     ; ValidArray:valarr|validArray[13] ; clock    ;
+; N/A                                     ; None                                                ; -3.622 ns ; offdata[8]  ; CacheData:cdata|BlockReg1[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.622 ns ; offdata[8]  ; CacheData:cdata|BlockReg2[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.630 ns ; offdata[5]  ; CacheData:cdata|BlockReg0[5]     ; clock    ;
+; N/A                                     ; None                                                ; -3.633 ns ; offdata[5]  ; CacheData:cdata|BlockReg1[5]     ; clock    ;
+; N/A                                     ; None                                                ; -3.633 ns ; addr[5]     ; ValidArray:valarr|validArray[1]  ; clock    ;
+; N/A                                     ; None                                                ; -3.646 ns ; offdata[0]  ; CacheData:cdata|BlockReg3[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.654 ns ; reset       ; ValidArray:valarr|validArray[11] ; clock    ;
+; N/A                                     ; None                                                ; -3.654 ns ; reset       ; ValidArray:valarr|validArray[15] ; clock    ;
+; N/A                                     ; None                                                ; -3.654 ns ; reset       ; ValidArray:valarr|validArray[9]  ; clock    ;
+; N/A                                     ; None                                                ; -3.654 ns ; reset       ; ValidArray:valarr|validArray[7]  ; clock    ;
+; N/A                                     ; None                                                ; -3.682 ns ; din[14]     ; CacheData:cdata|BlockReg0[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.682 ns ; din[8]      ; CacheData:cdata|BlockReg0[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.690 ns ; offdata[14] ; CacheData:cdata|BlockReg3[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.693 ns ; offdata[14] ; CacheData:cdata|BlockReg1[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.694 ns ; din[5]      ; CacheData:cdata|BlockReg1[5]     ; clock    ;
+; N/A                                     ; None                                                ; -3.695 ns ; din[5]      ; CacheData:cdata|BlockReg3[5]     ; clock    ;
+; N/A                                     ; None                                                ; -3.715 ns ; offdata[10] ; CacheData:cdata|BlockReg2[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.716 ns ; offdata[10] ; CacheData:cdata|BlockReg1[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.727 ns ; wacpt       ; CacheController:ctrl|state[2]    ; clock    ;
+; N/A                                     ; None                                                ; -3.733 ns ; offdata[14] ; CacheData:cdata|BlockReg0[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.749 ns ; addr[4]     ; ValidArray:valarr|validArray[3]  ; clock    ;
+; N/A                                     ; None                                                ; -3.752 ns ; addr[4]     ; ValidArray:valarr|validArray[0]  ; clock    ;
+; N/A                                     ; None                                                ; -3.752 ns ; addr[4]     ; ValidArray:valarr|validArray[2]  ; clock    ;
+; N/A                                     ; None                                                ; -3.753 ns ; addr[4]     ; ValidArray:valarr|validArray[1]  ; clock    ;
+; N/A                                     ; None                                                ; -3.755 ns ; offdata[11] ; CacheData:cdata|BlockReg3[11]    ; clock    ;
+; N/A                                     ; None                                                ; -3.755 ns ; addr[4]     ; ValidArray:valarr|validArray[15] ; clock    ;
+; N/A                                     ; None                                                ; -3.757 ns ; addr[4]     ; ValidArray:valarr|validArray[11] ; clock    ;
+; N/A                                     ; None                                                ; -3.757 ns ; addr[4]     ; ValidArray:valarr|validArray[7]  ; clock    ;
+; N/A                                     ; None                                                ; -3.758 ns ; addr[4]     ; ValidArray:valarr|validArray[9]  ; clock    ;
+; N/A                                     ; None                                                ; -3.760 ns ; addr[0]     ; ProcInterface:procif|dout[12]    ; clock    ;
+; N/A                                     ; None                                                ; -3.763 ns ; addr[1]     ; ProcInterface:procif|dout[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.774 ns ; addr[0]     ; ProcInterface:procif|dout[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.775 ns ; offdata[1]  ; CacheData:cdata|BlockReg2[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.782 ns ; offdata[11] ; CacheData:cdata|BlockReg0[11]    ; clock    ;
+; N/A                                     ; None                                                ; -3.784 ns ; offdata[2]  ; CacheData:cdata|BlockReg1[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.784 ns ; offdata[2]  ; CacheData:cdata|BlockReg0[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.784 ns ; addr[1]     ; ProcInterface:procif|dout[7]     ; clock    ;
+; N/A                                     ; None                                                ; -3.793 ns ; addr[1]     ; ProcInterface:procif|dout[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.800 ns ; din[1]      ; CacheData:cdata|BlockReg2[1]     ; clock    ;
+; N/A                                     ; None                                                ; -3.812 ns ; addr[0]     ; ProcInterface:procif|dout[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.820 ns ; addr[0]     ; ProcInterface:procif|dout[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.838 ns ; offdata[2]  ; CacheData:cdata|BlockReg2[2]     ; clock    ;
+; N/A                                     ; None                                                ; -3.851 ns ; offdata[3]  ; CacheData:cdata|BlockReg0[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.852 ns ; offdata[3]  ; CacheData:cdata|BlockReg1[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.869 ns ; offdata[13] ; CacheData:cdata|BlockReg0[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.877 ns ; din[10]     ; CacheData:cdata|BlockReg0[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.882 ns ; offdata[3]  ; CacheData:cdata|BlockReg2[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.888 ns ; offdata[0]  ; CacheData:cdata|BlockReg2[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.890 ns ; din[11]     ; CacheData:cdata|BlockReg3[11]    ; clock    ;
+; N/A                                     ; None                                                ; -3.891 ns ; din[10]     ; CacheData:cdata|BlockReg2[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.891 ns ; din[3]      ; CacheData:cdata|BlockReg3[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.892 ns ; din[10]     ; CacheData:cdata|BlockReg1[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.896 ns ; offdata[4]  ; CacheData:cdata|BlockReg0[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.899 ns ; offdata[4]  ; CacheData:cdata|BlockReg1[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.900 ns ; offdata[12] ; CacheData:cdata|BlockReg3[12]    ; clock    ;
+; N/A                                     ; None                                                ; -3.901 ns ; offdata[10] ; CacheData:cdata|BlockReg3[10]    ; clock    ;
+; N/A                                     ; None                                                ; -3.903 ns ; din[4]      ; CacheData:cdata|BlockReg3[4]     ; clock    ;
+; N/A                                     ; None                                                ; -3.908 ns ; din[9]      ; CacheData:cdata|BlockReg1[9]     ; clock    ;
+; N/A                                     ; None                                                ; -3.908 ns ; addr[1]     ; ProcInterface:procif|dout[9]     ; clock    ;
+; N/A                                     ; None                                                ; -3.910 ns ; din[9]      ; CacheData:cdata|BlockReg3[9]     ; clock    ;
+; N/A                                     ; None                                                ; -3.912 ns ; offdata[0]  ; CacheData:cdata|BlockReg1[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.913 ns ; offdata[3]  ; CacheData:cdata|BlockReg3[3]     ; clock    ;
+; N/A                                     ; None                                                ; -3.914 ns ; addr[4]     ; ValidArray:valarr|validArray[8]  ; clock    ;
+; N/A                                     ; None                                                ; -3.915 ns ; offdata[0]  ; CacheData:cdata|BlockReg0[0]     ; clock    ;
+; N/A                                     ; None                                                ; -3.918 ns ; addr[4]     ; ValidArray:valarr|validArray[12] ; clock    ;
+; N/A                                     ; None                                                ; -3.920 ns ; addr[4]     ; ValidArray:valarr|validArray[4]  ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[10] ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[14] ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[8]  ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[12] ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[13] ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[4]  ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[6]  ; clock    ;
+; N/A                                     ; None                                                ; -3.926 ns ; reset       ; ValidArray:valarr|validArray[5]  ; clock    ;
+; N/A                                     ; None                                                ; -3.934 ns ; addr[5]     ; ValidArray:valarr|validArray[3]  ; clock    ;
+; N/A                                     ; None                                                ; -3.937 ns ; addr[5]     ; ValidArray:valarr|validArray[2]  ; clock    ;
+; N/A                                     ; None                                                ; -3.938 ns ; addr[5]     ; ValidArray:valarr|validArray[0]  ; clock    ;
+; N/A                                     ; None                                                ; -3.941 ns ; din[8]      ; CacheData:cdata|BlockReg3[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.947 ns ; din[14]     ; CacheData:cdata|BlockReg3[14]    ; clock    ;
+; N/A                                     ; None                                                ; -3.953 ns ; din[8]      ; CacheData:cdata|BlockReg1[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.953 ns ; din[8]      ; CacheData:cdata|BlockReg2[8]     ; clock    ;
+; N/A                                     ; None                                                ; -3.970 ns ; addr[1]     ; ProcInterface:procif|dout[15]    ; clock    ;
+; N/A                                     ; None                                                ; -3.972 ns ; addr[1]     ; ProcInterface:procif|dout[13]    ; clock    ;
+; N/A                                     ; None                                                ; -3.975 ns ; reset       ; ValidArray:valarr|validArray[0]  ; clock    ;
+; N/A                                     ; None                                                ; -3.975 ns ; reset       ; ValidArray:valarr|validArray[2]  ; clock    ;
+; N/A                                     ; None                                                ; -3.975 ns ; reset       ; ValidArray:valarr|validArray[1]  ; clock    ;
+; N/A                                     ; None                                                ; -3.975 ns ; reset       ; ValidArray:valarr|validArray[3]  ; clock    ;
+; N/A                                     ; None                                                ; -3.976 ns ; offdata[12] ; CacheData:cdata|BlockReg0[12]    ; clock    ;
+; N/A                                     ; None                                                ; -3.981 ns ; din[7]      ; CacheData:cdata|BlockReg3[7]     ; clock    ;
+; N/A                                     ; None                                                ; -3.983 ns ; din[6]      ; CacheData:cdata|BlockReg0[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.987 ns ; din[6]      ; CacheData:cdata|BlockReg1[6]     ; clock    ;
+; N/A                                     ; None                                                ; -3.993 ns ; offdata[9]  ; CacheData:cdata|BlockReg3[9]     ; clock    ;
+; N/A                                     ; None                                                ; -3.994 ns ; addr[0]     ; ProcInterface:procif|dout[1]     ; clock    ;
+; N/A                                     ; None                                                ; -4.000 ns ; din[14]     ; CacheData:cdata|BlockReg2[14]    ; clock    ;
+; N/A                                     ; None                                                ; -4.003 ns ; din[14]     ; CacheData:cdata|BlockReg1[14]    ; clock    ;
+; N/A                                     ; None                                                ; -4.021 ns ; din[7]      ; CacheData:cdata|BlockReg0[7]     ; clock    ;
+; N/A                                     ; None                                                ; -4.023 ns ; wacpt       ; CacheController:ctrl|state[0]    ; clock    ;
+; N/A                                     ; None                                                ; -4.027 ns ; din[7]      ; CacheData:cdata|BlockReg1[7]     ; clock    ;
+; N/A                                     ; None                                                ; -4.028 ns ; offdata[5]  ; CacheData:cdata|BlockReg2[5]     ; clock    ;
+; N/A                                     ; None                                                ; -4.029 ns ; offdata[2]  ; CacheData:cdata|BlockReg3[2]     ; clock    ;
+; N/A                                     ; None                                                ; -4.030 ns ; din[12]     ; CacheData:cdata|BlockReg0[12]    ; clock    ;
+; N/A                                     ; None                                                ; -4.031 ns ; offdata[9]  ; CacheData:cdata|BlockReg0[9]     ; clock    ;
+; N/A                                     ; None                                                ; -4.047 ns ; offdata[9]  ; CacheData:cdata|BlockReg2[9]     ; clock    ;
+; N/A                                     ; None                                                ; -4.048 ns ; offdata[9]  ; CacheData:cdata|BlockReg1[9]     ; clock    ;
+; N/A                                     ; None                                                ; -4.075 ns ; addr[1]     ; ProcInterface:procif|dout[11]    ; clock    ;
+; N/A                                     ; None                                                ; -4.087 ns ; addr[1]     ; ProcInterface:procif|dout[5]     ; clock    ;
+; N/A                                     ; None                                                ; -4.097 ns ; offdata[12] ; CacheData:cdata|BlockReg1[12]    ; clock    ;
+; N/A                                     ; None                                                ; -4.117 ns ; din[11]     ; CacheData:cdata|BlockReg0[11]    ; clock    ;
+; N/A                                     ; None                                                ; -4.135 ns ; offdata[5]  ; CacheData:cdata|BlockReg3[5]     ; clock    ;
+; N/A                                     ; None                                                ; -4.150 ns ; addr[3]     ; ValidArray:valarr|validArray[12] ; clock    ;
+; N/A                                     ; None                                                ; -4.150 ns ; addr[3]     ; ValidArray:valarr|validArray[4]  ; clock    ;
+; N/A                                     ; None                                                ; -4.150 ns ; addr[0]     ; CacheData:cdata|BlockReg3[0]     ; clock    ;
+; N/A                                     ; None                                                ; -4.151 ns ; addr[3]     ; ValidArray:valarr|validArray[8]  ; clock    ;
+; N/A                                     ; None                                                ; -4.153 ns ; addr[0]     ; CacheData:cdata|BlockReg3[1]     ; clock    ;
+; N/A                                     ; None                                                ; -4.153 ns ; addr[0]     ; CacheData:cdata|BlockReg3[2]     ; clock    ;
+; N/A                                     ; None                                                ; -4.159 ns ; din[9]      ; CacheData:cdata|BlockReg0[9]     ; clock    ;
+; N/A                                     ; None                                                ; -4.175 ns ; din[12]     ; CacheData:cdata|BlockReg2[12]    ; clock    ;
+; N/A                                     ; None                                                ; -4.175 ns ; addr[5]     ; ValidArray:valarr|validArray[6]  ; clock    ;
+; N/A                                     ; None                                                ; -4.176 ns ; addr[5]     ; ValidArray:valarr|validArray[14] ; clock    ;
+; N/A                                     ; None                                                ; -4.178 ns ; addr[5]     ; ValidArray:valarr|validArray[10] ; clock    ;
+; N/A                                     ; None                                                ; -4.180 ns ; addr[5]     ; ValidArray:valarr|validArray[8]  ; clock    ;
+; N/A                                     ; None                                                ; -4.183 ns ; addr[5]     ; ValidArray:valarr|validArray[5]  ; clock    ;
+; N/A                                     ; None                                                ; -4.184 ns ; din[9]      ; CacheData:cdata|BlockReg2[9]     ; clock    ;
+; N/A                                     ; None                                                ; -4.184 ns ; addr[5]     ; ValidArray:valarr|validArray[4]  ; clock    ;
+; N/A                                     ; None                                                ; -4.185 ns ; addr[5]     ; ValidArray:valarr|validArray[12] ; clock    ;
+; N/A                                     ; None                                                ; -4.187 ns ; din[7]      ; CacheData:cdata|BlockReg2[7]     ; clock    ;
+; N/A                                     ; None                                                ; -4.187 ns ; addr[5]     ; ValidArray:valarr|validArray[13] ; clock    ;
+; N/A                                     ; None                                                ; -4.195 ns ; addr[5]     ; ValidArray:valarr|validArray[15] ; clock    ;
+; N/A                                     ; None                                                ; -4.196 ns ; addr[5]     ; ValidArray:valarr|validArray[11] ; clock    ;
+; N/A                                     ; None                                                ; -4.196 ns ; addr[5]     ; ValidArray:valarr|validArray[7]  ; clock    ;
+; N/A                                     ; None                                                ; -4.197 ns ; addr[5]     ; ValidArray:valarr|validArray[9]  ; clock    ;
+; N/A                                     ; None                                                ; -4.202 ns ; offdata[13] ; CacheData:cdata|BlockReg2[13]    ; clock    ;
+; N/A                                     ; None                                                ; -4.202 ns ; offdata[13] ; CacheData:cdata|BlockReg1[13]    ; clock    ;
+; N/A                                     ; None                                                ; -4.217 ns ; offdata[4]  ; CacheData:cdata|BlockReg3[4]     ; clock    ;
+; N/A                                     ; None                                                ; -4.220 ns ; din[11]     ; CacheData:cdata|BlockReg2[11]    ; clock    ;
+; N/A                                     ; None                                                ; -4.224 ns ; din[11]     ; CacheData:cdata|BlockReg1[11]    ; clock    ;
+; N/A                                     ; None                                                ; -4.256 ns ; addr[0]     ; ProcInterface:procif|dout[11]    ; clock    ;
+; N/A                                     ; None                                                ; -4.268 ns ; offdata[4]  ; CacheData:cdata|BlockReg2[4]     ; clock    ;
+; N/A                                     ; None                                                ; -4.288 ns ; offdata[1]  ; CacheData:cdata|BlockReg1[1]     ; clock    ;
+; N/A                                     ; None                                                ; -4.290 ns ; offdata[1]  ; CacheData:cdata|BlockReg0[1]     ; clock    ;
+; N/A                                     ; None                                                ; -4.296 ns ; addr[0]     ; ProcInterface:procif|dout[9]     ; clock    ;
+; N/A                                     ; None                                                ; -4.317 ns ; addr[3]     ; ValidArray:valarr|validArray[0]  ; clock    ;
+; N/A                                     ; None                                                ; -4.331 ns ; addr[3]     ; ValidArray:valarr|validArray[2]  ; clock    ;
+; N/A                                     ; None                                                ; -4.332 ns ; rdrdy       ; CacheController:ctrl|state[0]    ; clock    ;
+; N/A                                     ; None                                                ; -4.332 ns ; addr[3]     ; ValidArray:valarr|validArray[3]  ; clock    ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;             ;                                  ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+-------------+----------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Timing Analyzer
+    Info: Version 6.0 Build 178 04/27/2006 SJ Full Version
+    Info: Processing started: Tue Apr 22 22:50:49 2008
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off UnifiedCache -c UnifiedCache --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clock" is an undefined clock
+Info: Clock "clock" has Internal fmax of 255.62 MHz between source register "CacheController:ctrl|state[3]" and destination register "CacheData:cdata|BlockReg2[6]" (period= 3.912 ns)
+    Info: + Longest register to register delay is 3.695 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X42_Y20_N27; Fanout = 13; REG Node = 'CacheController:ctrl|state[3]'
+        Info: 2: + IC(0.843 ns) + CELL(0.275 ns) = 1.118 ns; Loc. = LCCOMB_X42_Y19_N4; Fanout = 4; COMB Node = 'CacheData:cdata|Selector64~203'
+        Info: 3: + IC(0.464 ns) + CELL(0.275 ns) = 1.857 ns; Loc. = LCCOMB_X43_Y19_N18; Fanout = 16; COMB Node = 'CacheData:cdata|Selector66~150'
+        Info: 4: + IC(1.178 ns) + CELL(0.660 ns) = 3.695 ns; Loc. = LCFF_X44_Y21_N3; Fanout = 1; REG Node = 'CacheData:cdata|BlockReg2[6]'
+        Info: Total cell delay = 1.210 ns ( 32.75 % )
+        Info: Total interconnect delay = 2.485 ns ( 67.25 % )
+    Info: - Smallest clock skew is -0.003 ns
+        Info: + Shortest clock path from clock "clock" to destination register is 2.677 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clock'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 102; COMB Node = 'clock~clkctrl'
+            Info: 3: + IC(1.023 ns) + CELL(0.537 ns) = 2.677 ns; Loc. = LCFF_X44_Y21_N3; Fanout = 1; REG Node = 'CacheData:cdata|BlockReg2[6]'
+            Info: Total cell delay = 1.536 ns ( 57.38 % )
+            Info: Total interconnect delay = 1.141 ns ( 42.62 % )
+        Info: - Longest clock path from clock "clock" to source register is 2.680 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clock'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 102; COMB Node = 'clock~clkctrl'
+            Info: 3: + IC(1.026 ns) + CELL(0.537 ns) = 2.680 ns; Loc. = LCFF_X42_Y20_N27; Fanout = 13; REG Node = 'CacheController:ctrl|state[3]'
+            Info: Total cell delay = 1.536 ns ( 57.31 % )
+            Info: Total interconnect delay = 1.144 ns ( 42.69 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+Info: tsu for register "ProcInterface:procif|dout[3]" (data pin = "addr[3]", clock pin = "clock") is 7.475 ns
+    Info: + Longest pin to register delay is 10.191 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_C16; Fanout = 11; PIN Node = 'addr[3]'
+        Info: 2: + IC(5.798 ns) + CELL(0.437 ns) = 7.085 ns; Loc. = LCCOMB_X42_Y20_N30; Fanout = 1; COMB Node = 'ValidArray:valarr|Mux0~62'
+        Info: 3: + IC(0.247 ns) + CELL(0.150 ns) = 7.482 ns; Loc. = LCCOMB_X42_Y20_N24; Fanout = 1; COMB Node = 'ValidArray:valarr|Mux0~63'
+        Info: 4: + IC(0.257 ns) + CELL(0.275 ns) = 8.014 ns; Loc. = LCCOMB_X42_Y20_N10; Fanout = 1; COMB Node = 'ValidArray:valarr|Mux0~64'
+        Info: 5: + IC(0.250 ns) + CELL(0.150 ns) = 8.414 ns; Loc. = LCCOMB_X42_Y20_N12; Fanout = 6; COMB Node = 'ValidArray:valarr|Mux0~67'
+        Info: 6: + IC(0.269 ns) + CELL(0.150 ns) = 8.833 ns; Loc. = LCCOMB_X42_Y20_N0; Fanout = 16; COMB Node = 'ProcInterface:procif|en'
+        Info: 7: + IC(0.698 ns) + CELL(0.660 ns) = 10.191 ns; Loc. = LCFF_X44_Y20_N17; Fanout = 1; REG Node = 'ProcInterface:procif|dout[3]'
+        Info: Total cell delay = 2.672 ns ( 26.22 % )
+        Info: Total interconnect delay = 7.519 ns ( 73.78 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clock" to destination register is 2.680 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clock'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 102; COMB Node = 'clock~clkctrl'
+        Info: 3: + IC(1.026 ns) + CELL(0.537 ns) = 2.680 ns; Loc. = LCFF_X44_Y20_N17; Fanout = 1; REG Node = 'ProcInterface:procif|dout[3]'
+        Info: Total cell delay = 1.536 ns ( 57.31 % )
+        Info: Total interconnect delay = 1.144 ns ( 42.69 % )
+Info: tco from clock "clock" to destination pin "offdata[9]" through register "CacheController:ctrl|state[0]" is 12.274 ns
+    Info: + Longest clock path from clock "clock" to source register is 2.680 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clock'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 102; COMB Node = 'clock~clkctrl'
+        Info: 3: + IC(1.026 ns) + CELL(0.537 ns) = 2.680 ns; Loc. = LCFF_X42_Y20_N3; Fanout = 14; REG Node = 'CacheController:ctrl|state[0]'
+        Info: Total cell delay = 1.536 ns ( 57.31 % )
+        Info: Total interconnect delay = 1.144 ns ( 42.69 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Longest register to pin delay is 9.344 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X42_Y20_N3; Fanout = 14; REG Node = 'CacheController:ctrl|state[0]'
+        Info: 2: + IC(2.071 ns) + CELL(0.371 ns) = 2.442 ns; Loc. = LCCOMB_X42_Y19_N30; Fanout = 17; COMB Node = 'MemInterface:memif|Equal2~18'
+        Info: 3: + IC(2.056 ns) + CELL(0.275 ns) = 4.773 ns; Loc. = LCCOMB_X45_Y21_N10; Fanout = 1; COMB Node = 'MemInterface:memif|offdata~894'
+        Info: 4: + IC(1.783 ns) + CELL(2.788 ns) = 9.344 ns; Loc. = PIN_D17; Fanout = 0; PIN Node = 'offdata[9]'
+        Info: Total cell delay = 3.434 ns ( 36.75 % )
+        Info: Total interconnect delay = 5.910 ns ( 63.25 % )
+Info: Longest tpd from source pin "addr[3]" to destination pin "rrqst" is 15.072 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_C16; Fanout = 11; PIN Node = 'addr[3]'
+    Info: 2: + IC(5.798 ns) + CELL(0.437 ns) = 7.085 ns; Loc. = LCCOMB_X42_Y20_N30; Fanout = 1; COMB Node = 'ValidArray:valarr|Mux0~62'
+    Info: 3: + IC(0.247 ns) + CELL(0.150 ns) = 7.482 ns; Loc. = LCCOMB_X42_Y20_N24; Fanout = 1; COMB Node = 'ValidArray:valarr|Mux0~63'
+    Info: 4: + IC(0.257 ns) + CELL(0.275 ns) = 8.014 ns; Loc. = LCCOMB_X42_Y20_N10; Fanout = 1; COMB Node = 'ValidArray:valarr|Mux0~64'
+    Info: 5: + IC(0.250 ns) + CELL(0.150 ns) = 8.414 ns; Loc. = LCCOMB_X42_Y20_N12; Fanout = 6; COMB Node = 'ValidArray:valarr|Mux0~67'
+    Info: 6: + IC(1.266 ns) + CELL(0.150 ns) = 9.830 ns; Loc. = LCCOMB_X42_Y19_N26; Fanout = 1; COMB Node = 'MemInterface:memif|Selector0~68'
+    Info: 7: + IC(0.429 ns) + CELL(0.245 ns) = 10.504 ns; Loc. = LCCOMB_X42_Y19_N16; Fanout = 1; COMB Node = 'MemInterface:memif|Selector0~69'
+    Info: 8: + IC(1.780 ns) + CELL(2.788 ns) = 15.072 ns; Loc. = PIN_AA17; Fanout = 0; PIN Node = 'rrqst'
+    Info: Total cell delay = 5.045 ns ( 33.47 % )
+    Info: Total interconnect delay = 10.027 ns ( 66.53 % )
+Info: th for register "CacheData:cdata|BlockReg3[13]" (data pin = "offdata[13]", clock pin = "clock") is -3.256 ns
+    Info: + Longest clock path from clock "clock" to destination register is 2.680 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'clock'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 102; COMB Node = 'clock~clkctrl'
+        Info: 3: + IC(1.026 ns) + CELL(0.537 ns) = 2.680 ns; Loc. = LCFF_X45_Y20_N7; Fanout = 1; REG Node = 'CacheData:cdata|BlockReg3[13]'
+        Info: Total cell delay = 1.536 ns ( 57.31 % )
+        Info: Total interconnect delay = 1.144 ns ( 42.69 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 6.202 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_N23; Fanout = 1; PIN Node = 'offdata[13]'
+        Info: 2: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = IOC_X65_Y20_N2; Fanout = 4; COMB Node = 'offdata[13]~2'
+        Info: 3: + IC(5.126 ns) + CELL(0.150 ns) = 6.118 ns; Loc. = LCCOMB_X45_Y20_N6; Fanout = 1; COMB Node = 'CacheData:cdata|Selector50~62'
+        Info: 4: + IC(0.000 ns) + CELL(0.084 ns) = 6.202 ns; Loc. = LCFF_X45_Y20_N7; Fanout = 1; REG Node = 'CacheData:cdata|BlockReg3[13]'
+        Info: Total cell delay = 1.076 ns ( 17.35 % )
+        Info: Total interconnect delay = 5.126 ns ( 82.65 % )
+Info: Quartus II Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Processing ended: Tue Apr 22 22:50:52 2008
+    Info: Elapsed time: 00:00:03
+
+

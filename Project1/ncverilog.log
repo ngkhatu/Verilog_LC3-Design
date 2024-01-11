@@ -1,0 +1,16 @@
+ncverilog: 06.20-s006: (c) Copyright 1995-2008 Cadence Design Systems, Inc.
+TOOL:	ncverilog	06.20-s006: Started on Jun 07, 2012 at 18:53:10 EDT
+ncverilog
+	+access+r
+	proj1test.v
+Loading snapshot worklib.test:v .................... Done
+ncsim> source /ncsu/cadence2005/ius62/tools/inca/files/ncsimrc
+ncsim> run
+MEM[3009]=   35 (35 expected)
+MEM[300a]=   36 (36 expected)
+MEM[300b]=300c (300c expected)
+MEM[300c]=0024 (0024 expected)
+Simulation complete via $finish(1) at time 1800 NS + 0
+./proj1test.v:44     $finish;
+ncsim> exit
+TOOL:	ncverilog	06.20-s006: Exiting on Jun 07, 2012 at 18:53:14 EDT  (total: 00:00:04)
